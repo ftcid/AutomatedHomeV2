@@ -29,7 +29,7 @@ As the general rule, the devices will be located in the form of ___\/<level0>\/<
 The system has an script to start all module programs and the master. This script is called ___automatedhomev2.sh___. Please follow the help in this script to get further information about how to use it.
 
 ## How to use the rule system
-The system has a mechanism to operate with rules. The file ___rules.yaml___ provides an example on how to generate actions on a module based upon this file. The rule engine is used from the library ___rule_engine___.
+The system has a mechanism to operate with rules. The file ___rules.yaml___ provides an example on how to generate actions on a module based upon this file. The rule engine is used from the library ___rule_engine___. This engine is wrapped in a class to permit use it with topics with the character '/', as this is a special character for the ___rule_engine___ library.
 
 ## Release Notes
 0.1.1 - First version. A predecessor project is used as the basis idea for developing this project further. This can be found under https://github.com/ftcid/AutomatedHome.
