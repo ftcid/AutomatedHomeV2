@@ -1,0 +1,43 @@
+rules:
+
+    ##
+    ## This section related to operation of the Lights
+    ##
+
+    - rule: '/room1L/shellybtn/event.event == "S"'
+      actions:
+          - '{"topic": "/room1L/Ceiling Lamp/command", "params": {"action": "set_rgb", "args": {"red": 255, "green": 255, "blue": 255}} }'
+          - '{"topic": "/room1L/Ceiling Lamp/command", "params": {"action": "set_brightness", "args": {"brightness": 80}} }'
+      
+    - rule: '/room1L/shellybtn/event.event == "SS"'
+      actions:
+          - '{"topic": "/room1L/Ceiling Lamp/command", "params": {"action": "set_rgb", "args": {"red": 20, "green": 20, "blue": 50}} }'
+          - '{"topic": "/room1L/Ceiling Lamp/command", "params": {"action": "set_brightness", "args": {"brightness": 17}} }'
+
+    - rule: '/room1L/shellybtn/event.event == "SSS"'
+      actions:
+          - '{"topic": "/room1L/Ceiling Lamp/command", "params": {"action": "set_rgb", "args": {"red": 255, "green": 0, "blue": 0}} }'
+          - '{"topic": "/room1L/Ceiling Lamp/command", "params": {"action": "set_brightness", "args": {"brightness": 1}} }'
+
+    - rule: '/room1L/shellybtn/event.event == "L"'
+      actions:
+          - '{"topic": "/room1L/Ceiling Lamp/command", "params": {"action": "toggle"} }'
+          
+    ##
+    ## This section related to operation of the Dehumidifier
+    ##
+      
+    - rule: '/room0L/MideaDehumidificationDevice/humidity >= 65 and /room0L/MideaDehumidificationDevice/power == "off" and (/global/datetime/time >= "06:30:00" and /global/datetime/time <= "21:00:00")'
+      actions:
+            - '{"topic": "/room0L/MideaDehumidificationDevice/command", "params": {"action": "continous_mode"} }'
+            - '{"topic": "/room0L/MideaDehumidificationDevice/command", "params": {"action": "turn_on"} }'
+            
+    - rule: '/room0L/MideaDehumidificationDevice/humidity < 45 and /room0L/MideaDehumidificationDevice/power == "on"'
+      actions:
+            - '{"topic": "/room0L/MideaDehumidificationDevice/command", "params": {"action": "continous_mode"} }'
+            - '{"topic": "/room0L/MideaDehumidificationDevice/command", "params": {"action": "turn_off"} }'
+
+    - rule: '/room0L/MideaDehumidificationDevice/power == "on" and (/global/datetime/time < "06:30:00" or /global/datetime/time > "21:00:00")'
+      actions:
+            - '{"topic": "/room0L/MideaDehumidificationDevice/command", "params": {"action": "continous_mode"} }'
+            - '{"topic": "/room0L/MideaDehumidificationDevice/command", "params": {"action": "turn_off"} }'

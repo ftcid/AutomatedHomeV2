@@ -1,0 +1,8 @@
+ComfeePool>=0.1.1
+Flask>=1.0.2
+paho_mqtt>=1.5.1
+PyYAML>=6.0.1
+Requests>=2.31.0
+rule_engine>=4.5.0
+ShellyPool>=0.1.1
+YeelightPool>=0.1.1
