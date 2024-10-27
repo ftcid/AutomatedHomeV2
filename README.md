@@ -28,6 +28,13 @@ As the general rule, the devices will be located in the form of ___\/<level0>\/<
 
 The system has an script to start all module programs and the master. This script is called ___automatedhomev2.sh___. Please follow the help in this script to get further information about how to use it.
 
+The system creates some classes that runs in a thread. Each thread is working to serve specific functionality. This to be as follows:
+
+- AutomatedHomeMaster: Central controller class managing MQTT, web, and DB interfaces.
+- MQTTInterface: Manages MQTT communication, subscribing to topics, and handling messages.
+- JSONWebInterface: Exposes the automated home system's data through a Flask-based web API. That provides data in JSON format by accessing http://host:7900/automatedhome?command=list_all_devices. 
+- DBInterface: Simulates database operations for storing device status updates in a DB. This module is still to be developed and this is currently a dummy class.
+
 ## How to use the rule system
 The system has a mechanism to operate with rules. The file ___rules.yaml___ provides an example on how to generate actions on a module based upon this file. The rule engine is used from the library ___rule_engine___. This engine is wrapped in a class to permit use it with topics with the character '/', as this is a special character for the ___rule_engine___ library.
 
