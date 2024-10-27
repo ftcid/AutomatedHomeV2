@@ -1,7 +1,7 @@
 # AutomatedHomeV2
 AutomatedHome is a from scratch version of AutomatedHome based mainly in Python. It is developed to integrate devices in MQTT based environment.
 
-**Note: this is the normal evolution of the AutomatedHome project initially written in C++ (https://github.com/ftcid/AutomatedHome) **
+**Note: this is the normal evolution of the AutomatedHome project initially written in C++ (https://github.com/ftcid/AutomatedHome)**
 
 This intend to integrate several devices such as lamps, temperature, humidity sensors, dehumidifiers, etc. into one system for monitor an control automatically.
 
